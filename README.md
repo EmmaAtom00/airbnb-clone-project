@@ -120,44 +120,115 @@ Below are the core features implemented in the Airbnb Clone Project, each contri
 
 ---
 
-### 1. 🧾 API Documentation
+### 1.  API Documentation
 
 The backend APIs are documented using the **OpenAPI standard**, providing clear, machine-readable documentation that facilitates integration and testing. Using **Django REST Framework** and **GraphQL**, the project supports both RESTful endpoints and flexible query-based data retrieval.
 
 ---
 
-### 2. 👤 User Authentication & Management
+### 2.  User Authentication & Management
 
 Users can register, log in, and manage their profiles via the `/users/` endpoints. Secure authentication mechanisms ensure that user data is protected, and role-based logic (host vs. guest) is enforced where necessary.
 
 ---
 
-### 3. 🏡 Property Management
+### 3.  Property Management
 
 Hosts can create, update, view, and delete property listings through the `/properties/` endpoints. This feature enables dynamic and user-generated content on the platform, supporting multiple hosts and properties.
 
 ---
 
-### 4. 📅 Booking System
+### 4.  Booking System
 
 The booking system allows users to reserve available properties, manage their bookings, and view check-in/check-out information. Implemented via `/bookings/`, this feature supports a core function of the platform—connecting guests with hosts.
 
 ---
 
-### 5. 💳 Payment Processing
+### 5.  Payment Processing
 
 Through the `/payments/` endpoint, users can securely process payments related to their bookings. This feature is essential for transaction handling, and lays the groundwork for future integration with third-party payment gateways.
 
 ---
 
-### 6. ⭐ Review System
+### 6.  Review System
 
 The review system enables users to post and manage feedback for properties they've booked. Accessible via `/reviews/`, this encourages trust and transparency among users by showcasing real experiences.
 
 ---
 
-### 7. ⚙️ Database Optimizations
+### 7.  Database Optimizations
 
 To ensure performance and scalability, the backend uses **indexing** for frequently queried fields and **caching** strategies (e.g., Redis) to reduce database load. These optimizations enhance response times and ensure smooth API performance even under load.
 
 ---
+
+##  API Security
+
+Security is a critical aspect of the Airbnb Clone Project to ensure the integrity, confidentiality, and availability of user data, property information, and financial transactions. Below are the key security measures implemented in the backend APIs:
+
+---
+
+### 1.  Authentication
+
+**What it does:**  
+Implements secure user login and token-based authentication (e.g., JWT) to verify the identity of users accessing the platform.
+
+**Why it's important:**  
+Prevents unauthorized access to user accounts, protects personal data, and ensures that only verified users can perform actions like booking properties or making payments.
+
+---
+
+### 2.  Authorization
+
+**What it does:**  
+Controls what authenticated users are allowed to do based on their roles (e.g., guest vs. host). Ensures users can only manage their own data.
+
+**Why it's important:**  
+Protects user integrity by preventing actions like editing another user's property, tampering with someone else's bookings, or accessing sensitive admin-level endpoints.
+
+---
+
+### 3.  Rate Limiting
+
+**What it does:**  
+Limits the number of API requests a user or IP address can make in a specific time frame.
+
+**Why it's important:**  
+Prevents abuse of APIs, protects against brute-force attacks (especially on login), and ensures fair use of system resources.
+
+---
+
+### 4.  Data Encryption
+
+**What it does:**  
+All sensitive data (e.g., passwords, payment info) is encrypted in transit using HTTPS, and passwords are stored as hashed values using secure algorithms like bcrypt or argon2.
+
+**Why it's important:**  
+Protects sensitive user information from being intercepted or compromised during transmission or storage.
+
+---
+
+### 5.  Input Validation & Sanitization
+
+**What it does:**  
+Validates and sanitizes all user inputs to prevent malicious code injection (e.g., SQL injection, XSS).
+
+**Why it's important:**  
+Prevents attackers from exploiting input fields to execute unauthorized commands or extract sensitive data from the database.
+
+---
+
+### 6.  Secure Payment Handling
+
+**What it does:**  
+Payment data is processed through secure backend logic, potentially integrated with third-party payment gateways for added compliance (e.g., PCI-DSS).
+
+**Why it's important:**  
+Ensures users' financial information is securely handled, builds user trust, and prevents fraud or payment manipulation.
+
+---
+
+Together, these security measures form a multi-layered defense strategy that keeps user data, financial transactions, and system integrity safe throughout the application lifecycle.
+
+---
+
