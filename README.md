@@ -114,3 +114,50 @@ Represents a transaction for a booking.
 
 ---
 
+##  Feature Breakdown
+
+Below are the core features implemented in the Airbnb Clone Project, each contributing to a seamless user experience and a scalable, production-ready backend system.
+
+---
+
+### 1. 🧾 API Documentation
+
+The backend APIs are documented using the **OpenAPI standard**, providing clear, machine-readable documentation that facilitates integration and testing. Using **Django REST Framework** and **GraphQL**, the project supports both RESTful endpoints and flexible query-based data retrieval.
+
+---
+
+### 2. 👤 User Authentication & Management
+
+Users can register, log in, and manage their profiles via the `/users/` endpoints. Secure authentication mechanisms ensure that user data is protected, and role-based logic (host vs. guest) is enforced where necessary.
+
+---
+
+### 3. 🏡 Property Management
+
+Hosts can create, update, view, and delete property listings through the `/properties/` endpoints. This feature enables dynamic and user-generated content on the platform, supporting multiple hosts and properties.
+
+---
+
+### 4. 📅 Booking System
+
+The booking system allows users to reserve available properties, manage their bookings, and view check-in/check-out information. Implemented via `/bookings/`, this feature supports a core function of the platform—connecting guests with hosts.
+
+---
+
+### 5. 💳 Payment Processing
+
+Through the `/payments/` endpoint, users can securely process payments related to their bookings. This feature is essential for transaction handling, and lays the groundwork for future integration with third-party payment gateways.
+
+---
+
+### 6. ⭐ Review System
+
+The review system enables users to post and manage feedback for properties they've booked. Accessible via `/reviews/`, this encourages trust and transparency among users by showcasing real experiences.
+
+---
+
+### 7. ⚙️ Database Optimizations
+
+To ensure performance and scalability, the backend uses **indexing** for frequently queried fields and **caching** strategies (e.g., Redis) to reduce database load. These optimizations enhance response times and ensure smooth API performance even under load.
+
+---
