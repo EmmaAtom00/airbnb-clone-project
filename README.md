@@ -1,18 +1,116 @@
-# airbnb-clone-project
-The Airbnb Clone Project is a full-stack web app that simulates a real-world booking platform. It focuses on backend systems, databases, APIs, and security, while teaching teamwork, scalability, and software architecture. Proud to be part of it!
+# Airbnb Clone Project
 
-# Team Roles
-- Backend Developer: Responsible for implementing API endpoints, database schemas, and business logic.
-- Database Administrator: Manages database design, indexing, and optimizations.
-- DevOps Engineer: Handles deployment, monitoring, and scaling of the backend services.
-- QA Engineer: Ensures the backend functionalities are thoroughly tested and meet quality standards.
+The **Airbnb Clone Project** is a full-stack web application that simulates a real-world booking platform.  
+It focuses on backend systems, databases, REST APIs, and security, while teaching essential skills like teamwork, scalability, and software architecture.
 
-# Technology Stack
-- Django: A high-level Python web framework used for building the RESTful API.
-- Django REST Framework: Provides tools for creating and managing RESTful APIs.
-- PostgreSQL: A powerful relational database used for data storage.
-- GraphQL: Allows for flexible and efficient querying of data.
-- Celery: For handling asynchronous tasks such as sending notifications or processing payments.
-- Redis: Used for caching and session management.
-- Docker: Containerization tool for consistent development and deployment environments.
-- CI/CD Pipelines: Automated pipelines for testing and deploying code changes.
+Proud to be part of this collaborative and impactful journey!
+
+---
+
+##  Team Roles
+
+- **Backend Developer**: Implements API endpoints, database schemas, and business logic.
+- **Database Administrator**: Designs and optimizes the database schema and manages performance.
+- **DevOps Engineer**: Deploys the app, manages CI/CD pipelines, and monitors backend services.
+- **QA Engineer**: Writes test cases and ensures the app meets functional and performance standards.
+
+---
+
+##  Technology Stack
+
+- **Django**: High-level Python web framework for backend development.
+- **Django REST Framework**: Toolkit for building Web APIs.
+- **PostgreSQL**: Robust, scalable relational database.
+- **GraphQL**: Flexible querying language for advanced data fetching.
+- **Celery**: Asynchronous task queue for background jobs (e.g., notifications, payment processing).
+- **Redis**: In-memory store used for caching and session management.
+- **Docker**: For containerization and consistent environments across dev/staging/prod.
+- **CI/CD Pipelines**: Automates testing and deployment for reliability and speed.
+
+---
+
+##  Database Design
+
+### 1. **User**
+Represents a person using the platform (host or guest).
+
+**Important Fields:**
+- `id` (unique identifier)
+- `name`
+- `email`
+- `password` (hashed)
+- `is_host` (boolean flag)
+
+**Relationships:**
+- A user can **own multiple properties**.
+- A user can **make multiple bookings**.
+- A user can **leave multiple reviews**.
+
+---
+
+### 2. **Property**
+Represents a place listed by a host.
+
+**Important Fields:**
+- `id`
+- `title`
+- `description`
+- `location`
+- `price_per_night`
+- `owner_id` (foreign key to User)
+
+**Relationships:**
+- A property **belongs to one user** (host).
+- A property can have **many bookings**.
+- A property can receive **multiple reviews**.
+
+---
+
+### 3. **Booking**
+Represents a reservation made by a guest.
+
+**Important Fields:**
+- `id`
+- `user_id` (guest who booked)
+- `property_id`
+- `start_date`
+- `end_date`
+- `status` (e.g., pending, confirmed, canceled)
+
+**Relationships:**
+- A booking **belongs to one user** and **one property**.
+- A booking may be linked to **a payment**.
+
+---
+
+### 4. **Review**
+Represents feedback left by a user.
+
+**Important Fields:**
+- `id`
+- `user_id` (review author)
+- `property_id`
+- `rating` (1–5)
+- `comment`
+
+**Relationships:**
+- A review is linked to **one user** and **one property**.
+- A user can leave **one review per property per booking** (based on business rules).
+
+---
+
+### 5. **Payment**
+Represents a transaction for a booking.
+
+**Important Fields:**
+- `id`
+- `booking_id`
+- `amount`
+- `payment_method` (e.g., card, PayPal)
+- `payment_status` (e.g., completed, failed)
+
+**Relationships:**
+- A payment is linked to **one booking**.
+
+---
+
